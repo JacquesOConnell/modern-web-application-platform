@@ -1,38 +1,34 @@
-# modern-web-application-platform
-A production-style DevOps project showcasing Azure DevOps, Git, CI/CD, Docker, Infrastructure as Code and cloud deployment using modern engineering best practices.
-
 # Modern Web Application Platform
 
-> Enterprise DevOps project showcasing Azure DevOps, Git, CI/CD, Infrastructure as Code, Docker and cloud-native deployment while preparing for the Microsoft Certified: DevOps Engineer Expert (AZ-400) certification.
+> Enterprise DevOps project demonstrating Agile planning, Git workflows, CI/CD, Infrastructure as Code, containerisation and cloud-native deployment using Microsoft Azure and Azure DevOps.
 
 ---
 
-## 📖 Project Overview
+## 📖 Overview
 
-The Modern Web Application Platform is an enterprise-style DevOps project built while studying for the Microsoft AZ-400 certification.
+The Modern Web Application Platform is an enterprise-style DevOps project designed to demonstrate modern software delivery practices using Microsoft Azure and Azure DevOps.
 
-Rather than completing isolated labs, this repository demonstrates the design, implementation and management of a complete DevOps lifecycle using Microsoft Azure, Azure DevOps and modern engineering best practices.
+The project showcases the complete DevOps lifecycle, including Agile planning, source control, continuous integration, continuous deployment, infrastructure automation, security, containerisation and monitoring. It serves as a practical portfolio project while aligning with the Microsoft AZ-400 (Designing and Implementing Microsoft DevOps Solutions) learning objectives.
 
 ---
 
 ## 🎯 Objectives
 
-- Implement Agile project planning with Azure Boards
-- Manage source code using Git and Azure Repos
-- Build Continuous Integration pipelines
-- Implement Continuous Deployment
-- Deploy applications to Microsoft Azure
+- Plan and manage work using Azure Boards
+- Implement Git-based source control strategies
+- Design and implement CI/CD pipelines
+- Deploy cloud-native applications
+- Implement Infrastructure as Code
 - Secure applications using Azure Key Vault
 - Containerise applications with Docker
-- Implement Infrastructure as Code
 - Configure monitoring and observability
-- Document the complete project lifecycle
+- Apply DevOps best practices
 
 ---
 
-## ☁️ Technologies
+## ☁️ Technology Stack
 
-### Cloud
+### Cloud Platforms
 
 - Microsoft Azure
 - Amazon Web Services (AWS)
@@ -58,7 +54,6 @@ Rather than completing isolated labs, this repository demonstrates the design, i
 ### Containers
 
 - Docker
-- Azure Container Registry
 
 ### Monitoring
 
@@ -67,67 +62,34 @@ Rather than completing isolated labs, this repository demonstrates the design, i
 
 ---
 
-## 🚀 Current Status
+## 🚧 Project Status
 
-**Phase**
-
-Project Foundation
-
-**Current Focus**
+**Current Phase**
 
 Designing and Implementing Source Control
 
 ---
 
-## 📅 Project Roadmap
+## 🗺️ Roadmap
 
 - [x] Project Planning
 - [ ] Source Control
-- [ ] Branching Strategy
+- [ ] Git Branching Strategy
 - [ ] Pull Requests
-- [ ] CI Pipeline
-- [ ] CD Pipeline
-- [ ] Azure App Service
+- [ ] Continuous Integration
+- [ ] Continuous Deployment
+- [ ] Infrastructure as Code
 - [ ] Azure Key Vault
 - [ ] Docker
 - [ ] Azure Container Registry
-- [ ] Azure Monitor
-- [ ] Application Insights
+- [ ] Monitoring
 - [ ] Final Documentation
 
 ---
 
 ## 📂 Repository Structure
 
-```
-modern-web-application-platform
-│
-├── docs/
-├── infrastructure/
-├── pipelines/
-├── src/
-├── tests/
-├── docker/
-├── monitoring/
-└── README.md
-```
-
-> The repository structure will evolve as the project progresses.
-
----
-
-## 📚 Documentation
-
-Project documentation will include:
-
-- Architecture
-- Agile Planning
-- CI/CD
-- Infrastructure as Code
-- Security
-- Deployment
-- Monitoring
-- Lessons Learned
+This repository will evolve throughout the project as new components are introduced.
 
 ---
 
@@ -139,6 +101,18 @@ Cloud Engineer | AWS | Azure | GCP | DevOps | Terraform | Docker | Kubernetes
 
 ---
 
-## ⭐ Purpose
+## 📜 License
 
-This repository serves as a professional portfolio project demonstrating practical DevOps engineering skills beyond certification study.
+This project is licensed under the MIT License.
+One thing I'd like us to do
+Once the course starts using Git, let's stop committing from the GitHub website and do everything from Visual Studio Code using Git.
+That means you'll gain experience with:
+git clone
+git status
+git add
+git commit
+git push
+git pull
+Branch creation
+Pull Requests
+Merge conflicts
