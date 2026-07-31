@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/ModernWebApp.Api/ModernWebApp.Api.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/ModernWebApp.Api.Tests/ModernWebApp.Api.Tests.csproj" />
+  </Folder>
+</Solution>
