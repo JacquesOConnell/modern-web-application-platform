@@ -1,0 +1,17 @@
+trigger:
+  branches:
+    include:
+      - main
+      - feature/build-pipeline
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: echo Hello, world!
+  displayName: Run a one-line script
+
+- script: |
+    echo Initial CI pipeline configuration
+    echo More build steps will be added next
+  displayName: Run initial pipeline steps
