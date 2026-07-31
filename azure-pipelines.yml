@@ -23,7 +23,7 @@ steps:
     SonarQube: SonarCloud
     organization: jacques1650
     scannerMode: dotnet
-    projectKey: jacques1650_modernwebapp
+    projectKey: modernwebapp
     projectName: Modern Web Application Platform
 
 - script: dotnet restore ModernWebApp.slnx
