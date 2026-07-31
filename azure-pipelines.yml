@@ -7,11 +7,21 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- script: echo Hello, world!
-  displayName: Run a one-line script
+variables:
+  buildConfiguration: Release
 
-- script: |
-    echo Initial CI pipeline configuration
-    echo More build steps will be added next
-  displayName: Run initial pipeline steps
+steps:
+- task: UseDotNet@2
+  displayName: Install .NET SDK
+  inputs:
+    packageType: sdk
+    version: 10.0.302
+
+- script: dotnet restore ModernWebApp.slnx
+  displayName: Restore dependencies
+
+- script: dotnet build ModernWebApp.slnx --configuration $(buildConfiguration) --no-restore
+  displayName: Build application
+
+- script: dotnet test ModernWebApp.slnx --configuration $(buildConfiguration) --no-build
+  displayName: Run unit tests
