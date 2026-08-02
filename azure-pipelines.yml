@@ -11,17 +11,14 @@ variables:
   buildConfiguration: Release
 
 stages:
-
 - stage: Build
-  displayName: 'Build Stage'
+  displayName: Build Stage
 
   jobs:
-
   - job: Build_API
-    displayName: 'Build ModernWebApp'
+    displayName: Build ModernWebApp
 
     steps:
-
     - task: UseDotNet@2
       displayName: Install .NET SDK
       inputs:
