@@ -50,3 +50,28 @@ stages:
       displayName: Publish SonarQube Cloud quality gate
       inputs:
         pollingTimeoutSec: '300'
+
+- stage: Publish
+  displayName: Publish Stage
+  dependsOn: Build
+
+  jobs:
+  - job: Publish_API
+    displayName: Publish ModernWebApp
+
+    steps:      
+    - task: DotNetCoreCLI@2
+      displayName: Publish application
+      inputs:
+        command: publish
+        publishWebProjects: false
+        projects: src/ModernWebApp.Api/ModernWebApp.Api.csproj
+        arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+        zipAfterPublish: false
+ 
+    - task: PublishPipelineArtifact@1
+      displayName: Publish pipeline artifact
+      inputs:
+        targetPath: '$(Build.ArtifactStagingDirectory)'
+        artifact: 'modernwebapp'
+        publishLocation: pipeline
