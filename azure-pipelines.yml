@@ -27,6 +27,7 @@ stages:
 
     - task: SonarCloudPrepare@4
       displayName: Prepare SonarQube Cloud analysis
+      condition: or(eq(variables['Build.SourceBranch'], 'refs/heads/main'), eq(variables['Build.Reason'], 'PullRequest'))
       inputs:
         SonarQube: SonarCloud
         organization: jacques1650
@@ -45,8 +46,35 @@ stages:
 
     - task: SonarCloudAnalyze@4
       displayName: Run SonarQube Cloud analysis
+      condition: or(eq(variables['Build.SourceBranch'], 'refs/heads/main'), eq(variables['Build.Reason'], 'PullRequest'))
 
     - task: SonarCloudPublish@4
       displayName: Publish SonarQube Cloud quality gate
+      condition: or(eq(variables['Build.SourceBranch'], 'refs/heads/main'), eq(variables['Build.Reason'], 'PullRequest'))
       inputs:
         pollingTimeoutSec: '300'
+
+- stage: Publish
+  displayName: Publish Stage
+  dependsOn: Build
+
+  jobs:
+  - job: Publish_API
+    displayName: Publish ModernWebApp
+
+    steps:      
+    - task: DotNetCoreCLI@2
+      displayName: Publish application
+      inputs:
+        command: publish
+        publishWebProjects: false
+        projects: src/ModernWebApp.Api/ModernWebApp.Api.csproj
+        arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+        zipAfterPublish: false
+ 
+    - task: PublishPipelineArtifact@1
+      displayName: Publish pipeline artifact
+      inputs:
+        targetPath: '$(Build.ArtifactStagingDirectory)'
+        artifact: 'modernwebapp'
+        publishLocation: pipeline
