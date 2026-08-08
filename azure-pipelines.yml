@@ -78,3 +78,30 @@ stages:
         targetPath: '$(Build.ArtifactStagingDirectory)'
         artifact: 'modernwebapp'
         publishLocation: pipeline
+
+  - stage: Deploy_Development
+    displayName: Deploy to Development
+    dependsOn: Publish
+    condition: succeeded()
+
+    jobs:
+    - deployment: Deploy_WebApp
+      displayName: Deploy ModernWebApp to Azure App Service
+      environment: Development
+
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+             - task: DownloadPipelineArtifact@2
+               displayName: Download ModernWebApp artifact
+               inputs:
+                artifact: modernwebapp
+                path: '$(Pipeline.Workspace)/modernwebapp'     
+             - task: AzureWebApp@1
+               displayName: Deploy to Azure Web App
+               inputs:
+                 azureSubscription: ModernWebApp-Azure-Dev
+                 appType: webAppLinux
+                 appName: modernwebapp-dev-joc
+                 package: '$(Pipeline.Workspace)/modernwebapp/**/*.zip'     
